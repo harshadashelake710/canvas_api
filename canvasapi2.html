@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /* here we have the *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    beacause we dont want any padding and marging in the code 
+    so thas why padding and margin is 0 and we want 
+    border box 
+    } */
+     *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+     }
+/* here  we have background color for the body*/
+body {
+    background-color: lightblue;
+     color:white;  /* for text color */
+     display: flex;
+     justify-content: center;
+    align-items: center;
+     height: 100vh;  /* full height of the viewport */
+}
+/* first style canva so that it eill visible   */
+canvas{
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 80%;
+    height: 80%;
+    
+    
+}
+</style>
+
+<body>
+    <canvas id ="canvas" width =300 height =300>
+
+    </canvas>
+</body>
+<script>
+    const canvas = document.getElementById("canvas");
+    const ctx =  canvas.getContext("2d");
+    //fill rectangle
+    ctx.fillStyle = "pink";//give background color of rect is pink
+    ctx.fillRect(20,20,150,30) // for specifying the cordinates of the rectangle
+/* here intitially we took zero because here we want to draw rectangle from top of x and close of y axis
+if you include some size at 0 , 0  is 10 ,12 so the rectangle from verticle line is 12 meter away and from hrizontal line top 10 meter away*/
+ctx.fillStyle = "blue";
+ctx.fillRect(120,20,80,30);
+
+// stroke rect 
+ctx.linewidth = 2;
+ctx.strokeStyle = "red";
+ctx.strokeRect(20,70,150,30);
+
+// draw circle
+ctx.beginPath(); // start a new path
+ctx.arc(150,150,50,0,Math.PI*2); // center of circle (150,150), radius 50, starting angle 0, ending angle 2pi (full circle)
+ctx.fillStyle = "green";
+ctx.fill(); // fill the circle
+
+// draw line
+ctx.beginPath(); // start a new path
+ctx.moveTo(100,100); // move the pen to (100,100)
+ctx.lineTo(200,200); // draw a line to (200,200)
+ctx.strokeStyle = "black";
+ctx.stroke(); // stroke the line
+
+// draw text
+ctx.font = "30px Arial";
+ctx.fillStyle = "yellow";
+ctx.fillText("Hello World", 100, 50);
+
+// draw image
+const img = new Image();
+img.src = "https://www.example.com/image.jpg"; // replace with your image url
+img.onload = function(){
+    ctx.drawImage(img, 10, 10, 100, 100); // draw the image at (10,10) with width and height 100
+}
+
+</script>
+
+</html>
